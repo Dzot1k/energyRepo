@@ -10,10 +10,7 @@ class MainViewModel : ViewModel() {
 
     private val repository: CalculateRepository = CalculateRepositoryInMemory()
 
-    val calculation by repository::calculation
-
-    val recommendations by repository::events
-    val problems by repository::problems
+    val events by repository::events
 
     fun getCount(): Int{
         return repository.getCount()

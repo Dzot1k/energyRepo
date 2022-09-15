@@ -10,7 +10,6 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.fragment.app.activityViewModels
 import ru.App.databinding.FragmentAnalysisBinding
-import ru.App.databinding.FragmentRecommendationsBinding
 import ru.App.viewModel.MainViewModel
 
 class FragmentAnalysis : Fragment() {

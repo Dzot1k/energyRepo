@@ -1,6 +1,7 @@
 package ru.App.ui
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,28 +25,25 @@ class FragmentRecommendations : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.recommendations.observe(viewLifecycleOwner) {
-            if (!viewModel.recommendations.value.isNullOrEmpty()) {
+
+        binding.botText.movementMethod = LinkMovementMethod.getInstance()
+
+        viewModel.events.observe(viewLifecycleOwner) {
+            if (!viewModel.events.value.isNullOrEmpty()) {
                 binding.textProblems.visibility = View.VISIBLE
-                binding.textRecommendations.visibility = View.VISIBLE
                 binding.botText.visibility = View.VISIBLE
                 binding.emptyText.visibility = View.GONE
             } else {
                 binding.textProblems.visibility = View.GONE
-                binding.textRecommendations.visibility = View.GONE
                 binding.botText.visibility = View.GONE
                 binding.emptyText.visibility = View.VISIBLE
             }
-            binding.problems.text = viewModel.problems.value
-            binding.recommendations.text = it
 
-
+            binding.problems.text = viewModel.events.value
         }
     }
 
     companion object {
-
-
         @JvmStatic
         fun newInstance() = FragmentRecommendations()
     }

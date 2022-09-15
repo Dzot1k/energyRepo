@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager2){
             tab, pos -> tab.text = fragListTitles[pos]
-            viewModel.problems.observe(this){
-                if (it.isNotBlank()) {
+            viewModel.events.observe(this){
+                if (!it.isNullOrBlank()) {
                     if (pos == 2) {
                         val badge = tab.orCreateBadge
                         badge.number = viewModel.getCount()
