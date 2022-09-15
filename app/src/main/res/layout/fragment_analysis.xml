@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.FragmentAnalysis">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editVoltage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:ellipsize="end"
+        android:hint="Напряжение"
+        android:inputType="numberDecimal"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/resultVoltage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        tools:text="Входит или не входит в  норму"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:ellipsize="end"
+        android:hint="Частота"
+        android:inputType="numberDecimal"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/resultFrequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:paddingStart="@dimen/common_spacing"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:paddingEnd="@dimen/common_spacing"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editNonSinusoidality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:ellipsize="end"
+        android:hint="Несинусоидальность"
+        android:inputType="numberDecimal"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/resultNonSin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editAsymmetry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:ellipsize="end"
+        android:hint="Несимметрия"
+        android:inputType="numberDecimal"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"
+        android:singleLine="true"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/resultAsymmetry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="-16dp"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_spacing"
+        android:text="Номинальное напряжение"
+        android:textAlignment="center"
+        android:textColor="#282828"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_button_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#282828"
+            android:text="@string/label_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/V"
+            android:textColor="#282828" />
+
+        <RadioButton
+            android:id="@+id/radio_button_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_2"
+            android:textColor="#282828"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/V"
+            android:textColor="#282828" />
+
+        <RadioButton
+            android:id="@+id/radio_button_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_3"
+            android:textColor="#282828"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/kV"
+            android:textColor="#282828" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/radio_button_1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_button_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_4"
+            android:textColor="#282828"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/kV"
+            android:textColor="#282828" />
+
+        <RadioButton
+            android:id="@+id/radio_button_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_5"
+            android:textColor="#282828"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/kV"
+            android:textColor="#282828" />
+
+        <RadioButton
+            android:id="@+id/radio_button_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_6"
+            android:textColor="#282828"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/kV"
+            android:textColor="#282828" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/calculate"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="Анализ" />
+
+    <Button
+        android:id="@+id/reset"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Сбросить" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

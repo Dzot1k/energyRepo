@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.FragmentRecommendations">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/emptyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Для получения рекомендаций необходимо выполнить анализ"
+        android:textColor="#282828"
+        android:textSize="20sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textProblems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:text="Обнаружены проблемы:"
+        android:textColor="#282828"
+        android:textSize="16sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/problems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:textColor="#282828"
+        android:textSize="16sp"
+        tools:text="1. Несимметрия ____ при норме ____\n
+2. Несинусоидальность _____ при норме _____" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textRecommendations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:text="\nПредлагаемые мероприятия:"
+        android:textColor="#282828"
+        android:textSize="16sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/recommendations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:textColor="#282828"
+        android:textSize="16sp"
+        tools:text="1. ________________\n2. ________________" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/botText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:layout_marginBottom="@dimen/common_spacing"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="\nООО 'Транснефтьэнерго', для потребителей-юридических лиц, предлагается воспользоваться услугой: Качество по ГОСТ и выше ГОСТ.\nПодробности по ссылке https://transneftenergo.ru/"
+        android:textColor="#282828"
+        android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>
