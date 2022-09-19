@@ -7,6 +7,8 @@ interface CalculateRepository {
 
     val events: LiveData<String>
 
+    val report: LiveData<Boolean>
+
     fun calculateVoltage(context: Context, voltage: String, voltageStandard: String): Boolean
 
     fun calculateFrequency(context: Context, frequency: String): Boolean
@@ -18,4 +20,6 @@ interface CalculateRepository {
     fun reset()
 
     fun getCount(): Int
+
+    fun reportShutdown(report: String)
 }

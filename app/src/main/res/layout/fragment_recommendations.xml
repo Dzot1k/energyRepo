@@ -43,16 +43,31 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_spacing"
             android:layout_marginEnd="@dimen/common_spacing"
-            android:textColor="#282828"
-            android:linksClickable="true"
             android:autoLink="all"
+            android:linksClickable="true"
+            android:textColor="#282828"
             android:textSize="16sp"
             tools:text="@string/voltage_less198_more242" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textIfPowerOutageTrue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:autoLink="all"
+            android:linksClickable="true"
+            android:text="@string/textIfPowerOutageTrue"
+            android:textColor="#282828"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/botText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_spacing"
             android:layout_marginStart="@dimen/common_spacing"
             android:layout_marginEnd="@dimen/common_spacing"
             android:layout_marginBottom="@dimen/common_spacing"

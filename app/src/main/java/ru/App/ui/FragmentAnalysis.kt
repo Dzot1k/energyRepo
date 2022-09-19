@@ -17,6 +17,7 @@ class FragmentAnalysis : Fragment() {
     private lateinit var binding: FragmentAnalysisBinding
     private var radioGroupBlock: Boolean = false
     private lateinit var currentVoltage: String
+    private lateinit var reporting: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +32,10 @@ class FragmentAnalysis : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         currentVoltage = ""
+        reporting = ""
         val radioGroup1: RadioGroup = binding.radioGroup
         val radioGroup2: RadioGroup = binding.radioGroup2
+        val radioGroup3: RadioGroup = binding.radioGroupPowerOutage
 
         binding.calculate.setOnClickListener {
             if (
@@ -70,7 +73,7 @@ class FragmentAnalysis : Fragment() {
                     val frequency = binding.editFrequency.text.toString()
                     if (viewModel.calculateFrequency(binding.resultFrequency.context, frequency)) {
                         binding.resultFrequency.also {
-                            it.setTextColor(Color.GREEN)
+                            it.setTextColor(Color.BLUE)
                             it.text = "Частота соответствует норме"
                         }
                     } else {
@@ -85,7 +88,7 @@ class FragmentAnalysis : Fragment() {
                     val asymmetry = binding.editAsymmetry.text.toString()
                     if (viewModel.calculateAsymmetry(binding.resultAsymmetry.context, asymmetry)) {
                         binding.resultAsymmetry.also {
-                            it.setTextColor(Color.GREEN)
+                            it.setTextColor(Color.BLUE)
                             it.text = "Несимметрия соответствует норме"
                         }
                     } else {
@@ -106,7 +109,7 @@ class FragmentAnalysis : Fragment() {
                         )
                     ) {
                         binding.resultNonSin.also {
-                            it.setTextColor(Color.GREEN)
+                            it.setTextColor(Color.BLUE)
                             it.text = "Несинусоидальность в норме"
                         }
                     } else {
@@ -116,7 +119,20 @@ class FragmentAnalysis : Fragment() {
                         }
                     }
                 }
+
+
             }
+            if (reporting == "Да") {
+                viewModel.reportShutdown(reporting)
+            } else viewModel.reportShutdown("Нет")
+        }
+
+        radioGroup3.setOnCheckedChangeListener { _, checkedId ->
+            if (radioGroup3.checkedRadioButtonId != -1) {
+                val radio: RadioButton = requireView().findViewById(checkedId)
+                reporting = radio.text.toString()
+            }
+
         }
 
         radioGroup1.setOnCheckedChangeListener { _, checkedId ->
@@ -151,6 +167,10 @@ class FragmentAnalysis : Fragment() {
             radioGroup2.clearCheck()
             radioGroupBlock = false
             viewModel.reset()
+
+            radioGroup3.clearCheck()
+
+            reporting = ""
             currentVoltage = ""
             binding.also {
                 it.editVoltage.setText("")

@@ -10,6 +10,8 @@ class CalculateRepositoryInMemory : CalculateRepository {
 
     override val events = MutableLiveData("")
 
+    override val report = MutableLiveData(false)
+
     private var eventsCount: Int = 1
 
     private val textForEvents
@@ -18,6 +20,8 @@ class CalculateRepositoryInMemory : CalculateRepository {
     override fun getCount(): Int {
         return eventsCount - 1
     }
+
+
 
     override fun calculateVoltage(
         context: Context,
@@ -41,26 +45,26 @@ class CalculateRepositoryInMemory : CalculateRepository {
         if (voltageDouble in voltageStandardMin..voltageStandardMax) return true
 
         events.value =
-            textForEvents + "\n" + String.format(
+            textForEvents + String.format(
                 context.getString(R.string.problemVoltage),
                 eventsCount++,
                 ("$voltage $unitVoltage"),
                 ("$voltageStandardMinDec - $voltageStandardMaxDec $unitVoltage")
             ) + "\n" + String.format(
                 context.getString(R.string.voltage_less198_more242)
-            )
+            ) + "\n"
         return false
     }
 
     override fun calculateFrequency(context: Context, frequency: String): Boolean {
         if (frequency.toDouble() in frequencyRangeHz) return true
-        events.value = textForEvents + "\n" + String.format(
+        events.value = textForEvents + String.format(
             context.getString(R.string.problemFrequency),
             eventsCount++,
             frequency
         ) + "\n" + String.format(
             context.getString(R.string.voltage_less198_more242)
-        )
+        ) + "\n"
         return false
     }
 
@@ -68,21 +72,21 @@ class CalculateRepositoryInMemory : CalculateRepository {
         val asymmetryDouble = asymmetry.toDouble()
         if (asymmetryDouble in asymmetryRange) return true
         if (asymmetryDouble in 2.0..4.0) {
-            events.value = textForEvents + "\n" + String.format(
+            events.value = textForEvents + String.format(
                 context.getString(R.string.problemAsymmetry),
                 eventsCount++,
                 asymmetry
             ) + "\n" + String.format(
                 context.getString(R.string.asymmetry2_4)
-            )
+            ) + "\n"
         } else {
-            events.value = textForEvents + "\n" + String.format(
+            events.value = textForEvents + String.format(
                 context.getString(R.string.problemAsymmetry),
                 eventsCount++,
                 asymmetry
             ) + "\n" + String.format(
                 context.getString(R.string.asymmetryMore4)
-            )
+            ) + "\n"
         }
         return false
     }
@@ -97,90 +101,90 @@ class CalculateRepositoryInMemory : CalculateRepository {
             220, 380 -> if (nonSinusoidalityDouble in nonSinusRange220and380) return true
             else {
                 if (nonSinusoidalityDouble in 8.0..12.0) {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 12"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusLess)
-                    )
+                    ) + "\n"
                 } else {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 12"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusMore)
-                    )
+                    ) + "\n"
                 }
             }
 
             6, 10 -> if (nonSinusoidalityDouble in nonSinusRange6And10) return true
             else {
                 if (nonSinusoidalityDouble in 5.0..8.0) {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 8"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusLess)
-                    )
+                    ) + "\n"
                 } else {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 8"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusMore)
-                    )
+                    ) + "\n"
                 }
             }
             35 -> if (nonSinusoidalityDouble in nonSinusRange35) return true
             else {
                 if (nonSinusoidalityDouble in 4.0..6.0) {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 6"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusLess)
-                    )
+                    ) + "\n"
                 } else {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 6"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusMore)
-                    )
+                    ) + "\n"
                 }
             }
             else -> if (nonSinusoidalityDouble in nonSinusRange110And220) return true
             else {
                 if (nonSinusoidalityDouble in 2.0..3.0) {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 3"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusLess)
-                    )
+                    ) + "\n"
                 } else {
-                    events.value = textForEvents + "\n" + String.format(
+                    events.value = textForEvents + String.format(
                         context.getString(R.string.problemNonSinus),
                         eventsCount++,
                         nonSinusoidality,
                         "0 - 3"
                     ) + "\n" + String.format(
                         context.getString(R.string.nonSinusMore)
-                    )
+                    ) + "\n"
                 }
             }
         }
@@ -189,9 +193,13 @@ class CalculateRepositoryInMemory : CalculateRepository {
 
     override fun reset() {
         events.value = ""
+        report.value = false
         eventsCount = 1
     }
 
+    override fun reportShutdown(report: String){
+        this.report.value = report == "Да"
+    }
 
     companion object {
         const val voltageDeviation = 0.1

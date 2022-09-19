@@ -28,6 +28,21 @@ class FragmentRecommendations : Fragment() {
 
         binding.botText.movementMethod = LinkMovementMethod.getInstance()
 
+        viewModel.report.observe(viewLifecycleOwner) {
+            binding.textIfPowerOutageTrue.also {
+                if (viewModel.report.value == true) {
+                    binding.emptyText.visibility = View.GONE
+                    it.visibility = View.VISIBLE
+                }
+                else {
+                    it.visibility = View.GONE
+                    if (viewModel.events.value.isNullOrEmpty()) {
+                        binding.emptyText.visibility = View.VISIBLE
+                    }
+                }
+            }
+        }
+
         viewModel.events.observe(viewLifecycleOwner) {
             if (!viewModel.events.value.isNullOrEmpty()) {
                 binding.textProblems.visibility = View.VISIBLE
@@ -38,7 +53,6 @@ class FragmentRecommendations : Fragment() {
                 binding.botText.visibility = View.GONE
                 binding.emptyText.visibility = View.VISIBLE
             }
-
             binding.problems.text = viewModel.events.value
         }
     }

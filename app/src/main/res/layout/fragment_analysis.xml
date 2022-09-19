@@ -11,111 +11,156 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editVoltage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@android:color/transparent"
-        android:ellipsize="end"
-        android:hint="@string/voltage"
-        android:inputType="numberDecimal"
-        android:paddingStart="@dimen/common_spacing"
-        android:paddingEnd="@dimen/common_spacing"
-        android:singleLine="true"
-        android:textSize="20sp" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editVoltage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:ellipsize="end"
+            android:hint="@string/voltage"
+            android:inputType="numberDecimal"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:singleLine="true"
+            android:textSize="20sp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/resultVoltage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginTop="-16dp"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        tools:text="Входит или не входит в  норму"
-        android:paddingStart="@dimen/common_spacing"
-        android:paddingEnd="@dimen/common_spacing"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resultVoltage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="-16dp"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            tools:text="Входит или не входит в  норму" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editFrequency"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@android:color/transparent"
-        android:ellipsize="end"
-        android:hint="@string/frequency"
-        android:inputType="numberDecimal"
-        android:paddingStart="@dimen/common_spacing"
-        android:paddingEnd="@dimen/common_spacing"
-        android:singleLine="true"
-        android:textSize="20sp" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:ellipsize="end"
+            android:hint="@string/frequency"
+            android:inputType="numberDecimal"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:singleLine="true"
+            android:textSize="20sp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/resultFrequency"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginTop="-16dp"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:paddingStart="@dimen/common_spacing"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        android:paddingEnd="@dimen/common_spacing"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resultFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="-16dp"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editNonSinusoidality"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@android:color/transparent"
-        android:ellipsize="end"
-        android:hint="@string/nonSinusoidality"
-        android:inputType="numberDecimal"
-        android:paddingStart="@dimen/common_spacing"
-        android:paddingEnd="@dimen/common_spacing"
-        android:singleLine="true"
-        android:textSize="20sp" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editNonSinusoidality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:ellipsize="end"
+            android:hint="@string/nonSinusoidality"
+            android:inputType="numberDecimal"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:singleLine="true"
+            android:textSize="20sp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/resultNonSin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginTop="-16dp"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        android:paddingStart="@dimen/common_spacing"
-        android:paddingEnd="@dimen/common_spacing"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resultNonSin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="-16dp"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editAsymmetry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@android:color/transparent"
-        android:ellipsize="end"
-        android:hint="@string/asymmetry"
-        android:inputType="numberDecimal"
-        android:paddingStart="@dimen/common_spacing"
-        android:paddingEnd="@dimen/common_spacing"
-        android:singleLine="true"
-        android:textSize="20sp" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editAsymmetry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:ellipsize="end"
+            android:hint="@string/asymmetry"
+            android:inputType="numberDecimal"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:singleLine="true"
+            android:textSize="20sp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/resultAsymmetry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing"
-        android:layout_marginTop="-16dp"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        android:paddingStart="@dimen/common_spacing"
-        android:paddingEnd="@dimen/common_spacing"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/resultAsymmetry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginTop="-16dp"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:paddingStart="@dimen/common_spacing"
+            android:paddingEnd="@dimen/common_spacing"
+            android:textSize="12sp"
+            android:textStyle="italic" />
 
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textPowerOutage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:text="@string/textPowerOutage"
+                android:textAlignment="textStart"
+                android:paddingStart="@dimen/common_spacing"
+                android:paddingEnd="@dimen/common_spacing"
+                android:textColor="#282828"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupPowerOutage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/common_spacing"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButtonOn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yes"
+                    android:textColor="#282828" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonOff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no"
+                    android:textColor="#282828" />
+            </RadioGroup>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textBottom"
@@ -126,6 +171,7 @@
             android:textAlignment="center"
             android:textColor="#282828"
             android:textSize="20sp" />
+
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -138,8 +184,8 @@
                 android:id="@+id/radio_button_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#282828"
-                android:text="@string/label_1" />
+                android:text="@string/label_1"
+                android:textColor="#282828" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -153,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_2"
-                android:textColor="#282828"/>
+                android:textColor="#282828" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -167,7 +213,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_3"
-                android:textColor="#282828"/>
+                android:textColor="#282828" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -190,7 +236,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_4"
-                android:textColor="#282828"/>
+                android:textColor="#282828" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -204,7 +250,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_5"
-                android:textColor="#282828"/>
+                android:textColor="#282828" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -218,7 +264,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_6"
-                android:textColor="#282828"/>
+                android:textColor="#282828" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -228,23 +274,23 @@
                 android:textColor="#282828" />
         </RadioGroup>
 
-    <Button
-        android:id="@+id/calculate"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="center"
-        android:text="@string/analysis" />
+        <Button
+            android:id="@+id/calculate"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:text="@string/analysis" />
 
-    <Button
-        android:id="@+id/reset"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/reset" />
+        <Button
+            android:id="@+id/reset"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/reset" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

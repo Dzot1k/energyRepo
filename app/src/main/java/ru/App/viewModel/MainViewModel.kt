@@ -12,11 +12,13 @@ class MainViewModel : ViewModel() {
 
     val events by repository::events
 
-    fun getCount(): Int{
+    val report by repository::report
+
+    fun getCount(): Int {
         return repository.getCount()
     }
 
-    fun reset(){
+    fun reset() {
         repository.reset()
     }
 
@@ -32,7 +34,15 @@ class MainViewModel : ViewModel() {
         return repository.calculateAsymmetry(context, asymmetry)
     }
 
-    fun calculateNonSinusoidality(context: Context, nonSinusoidality: String, voltageStandard: String): Boolean {
+    fun calculateNonSinusoidality(
+        context: Context,
+        nonSinusoidality: String,
+        voltageStandard: String
+    ): Boolean {
         return repository.calculateNonSinus(context, nonSinusoidality, voltageStandard)
+    }
+
+    fun reportShutdown(report: String) {
+        repository.reportShutdown(report)
     }
 }
