@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private val fragListTitles = listOf(
         "Анализ",
         "Справка",
-        "Рекоммендации"
+        "Отчёт"
     )
 
     private lateinit var binding: ActivityMainBinding
@@ -35,9 +35,17 @@ class MainActivity : AppCompatActivity() {
         val adapter = VpAdapter(this, fragList)
         binding.viewPager2.adapter = adapter
 
-        TabLayoutMediator(binding.tabLayout, binding.viewPager2){
-            tab, pos -> tab.text = fragListTitles[pos]
-            viewModel.events.observe(this){
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, pos ->
+            tab.text = fragListTitles[pos]
+            viewModel.report.observe(this){
+                if (it) {
+                    if (pos == 2) {
+                        val badge = tab.orCreateBadge
+                        badge.number = viewModel.getCount()
+                    }
+                }
+            }
+            viewModel.events.observe(this) {
                 if (!it.isNullOrBlank()) {
                     if (pos == 2) {
                         val badge = tab.orCreateBadge
@@ -49,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+
         }.attach()
 
 

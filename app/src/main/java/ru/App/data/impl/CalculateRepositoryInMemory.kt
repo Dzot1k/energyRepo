@@ -18,10 +18,8 @@ class CalculateRepositoryInMemory : CalculateRepository {
         get() = events.value
 
     override fun getCount(): Int {
-        return eventsCount - 1
+        return if (report.value == true) eventsCount else eventsCount - 1
     }
-
-
 
     override fun calculateVoltage(
         context: Context,

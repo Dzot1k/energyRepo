@@ -11,11 +11,23 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:text="@string/enterValues"
+            android:textAlignment="center"
+            android:textColor="#282828"
+            android:textSize="20sp" />
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/editVoltage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
             android:background="@android:color/transparent"
             android:ellipsize="end"
             android:hint="@string/voltage"
@@ -30,7 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_spacing"
-            android:layout_marginTop="-16dp"
             android:layout_marginEnd="@dimen/common_spacing"
             android:paddingStart="@dimen/common_spacing"
             android:paddingEnd="@dimen/common_spacing"
@@ -115,52 +126,6 @@
             android:paddingEnd="@dimen/common_spacing"
             android:textSize="12sp"
             android:textStyle="italic" />
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/textPowerOutage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:layout_marginStart="@dimen/common_spacing"
-                android:text="@string/textPowerOutage"
-                android:textAlignment="textStart"
-                android:paddingStart="@dimen/common_spacing"
-                android:paddingEnd="@dimen/common_spacing"
-                android:textColor="#282828"
-                android:textSize="20sp" />
-
-            <RadioGroup
-                android:id="@+id/radioGroupPowerOutage"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:gravity="center"
-                android:layout_marginEnd="@dimen/common_spacing"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioButtonOn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/yes"
-                    android:textColor="#282828" />
-
-                <RadioButton
-                    android:id="@+id/radioButtonOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no"
-                    android:textColor="#282828" />
-            </RadioGroup>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textBottom"

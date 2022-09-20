@@ -35,9 +35,9 @@ class FragmentAnalysis : Fragment() {
         reporting = ""
         val radioGroup1: RadioGroup = binding.radioGroup
         val radioGroup2: RadioGroup = binding.radioGroup2
-        val radioGroup3: RadioGroup = binding.radioGroupPowerOutage
 
         binding.calculate.setOnClickListener {
+
             if (
                 currentVoltage != ""
             ) {
@@ -46,8 +46,12 @@ class FragmentAnalysis : Fragment() {
                 binding.resultAsymmetry.text = ""
                 binding.resultNonSin.text = ""
                 viewModel.reset()
+                reporting = if (binding.editVoltage.text.toString() == "0") "Да" else "Нет"
+                viewModel.reportShutdown(reporting)
 
-                if (binding.editVoltage.text.toString() != "") {
+
+
+                if (binding.editVoltage.text.toString() != "" && binding.editVoltage.text.toString() != "0") {
                     val voltage = binding.editVoltage.text.toString()
                     if (viewModel.calculateVoltage(
                             binding.resultVoltage.context,
@@ -56,7 +60,7 @@ class FragmentAnalysis : Fragment() {
                         )
                     ) {
                         binding.resultVoltage.also {
-                            it.setTextColor(Color.BLUE)
+                            it.setTextColor(Color.GREEN)
                             it.text = "Напряжение соответствует норме"
                         }
                     } else {
@@ -73,7 +77,7 @@ class FragmentAnalysis : Fragment() {
                     val frequency = binding.editFrequency.text.toString()
                     if (viewModel.calculateFrequency(binding.resultFrequency.context, frequency)) {
                         binding.resultFrequency.also {
-                            it.setTextColor(Color.BLUE)
+                            it.setTextColor(Color.GREEN)
                             it.text = "Частота соответствует норме"
                         }
                     } else {
@@ -88,7 +92,7 @@ class FragmentAnalysis : Fragment() {
                     val asymmetry = binding.editAsymmetry.text.toString()
                     if (viewModel.calculateAsymmetry(binding.resultAsymmetry.context, asymmetry)) {
                         binding.resultAsymmetry.also {
-                            it.setTextColor(Color.BLUE)
+                            it.setTextColor(Color.GREEN)
                             it.text = "Несимметрия соответствует норме"
                         }
                     } else {
@@ -109,7 +113,7 @@ class FragmentAnalysis : Fragment() {
                         )
                     ) {
                         binding.resultNonSin.also {
-                            it.setTextColor(Color.BLUE)
+                            it.setTextColor(Color.GREEN)
                             it.text = "Несинусоидальность в норме"
                         }
                     } else {
@@ -120,20 +124,11 @@ class FragmentAnalysis : Fragment() {
                     }
                 }
 
-
             }
-            if (reporting == "Да") {
-                viewModel.reportShutdown(reporting)
-            } else viewModel.reportShutdown("Нет")
+            reporting = if (binding.editVoltage.text.toString() == "0") "Да" else "Нет"
+            viewModel.reportShutdown(reporting)
         }
 
-        radioGroup3.setOnCheckedChangeListener { _, checkedId ->
-            if (radioGroup3.checkedRadioButtonId != -1) {
-                val radio: RadioButton = requireView().findViewById(checkedId)
-                reporting = radio.text.toString()
-            }
-
-        }
 
         radioGroup1.setOnCheckedChangeListener { _, checkedId ->
             if (radioGroupBlock)
@@ -167,8 +162,6 @@ class FragmentAnalysis : Fragment() {
             radioGroup2.clearCheck()
             radioGroupBlock = false
             viewModel.reset()
-
-            radioGroup3.clearCheck()
 
             reporting = ""
             currentVoltage = ""
