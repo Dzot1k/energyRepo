@@ -27,7 +27,7 @@ class CalculateRepositoryInMemory : CalculateRepository {
         voltageStandard: String
     ): Boolean {
         val voltageDouble = voltage.toDouble()
-        val voltageStandardDouble = voltageStandard.toDouble()
+        val voltageStandardDouble = voltageStandard.toDouble() * 1000
 
         val unitVoltage =
             if (voltageStandard == "6" ||
@@ -37,16 +37,16 @@ class CalculateRepositoryInMemory : CalculateRepository {
             ) context.getString(R.string.kV) else context.getString(R.string.V)
         val df = DecimalFormat("#.##")
         val voltageStandardMin = voltageStandardDouble * (1 - voltageDeviation)
-        val voltageStandardMinDec = df.format(voltageStandardMin)
+        val voltageStandardMinDec = df.format(voltageStandardMin/1000)
         val voltageStandardMax = voltageStandardDouble * (1 + voltageDeviation)
-        val voltageStandardMaxDec = df.format(voltageStandardMax)
+        val voltageStandardMaxDec = df.format(voltageStandardMax/1000)
         if (voltageDouble in voltageStandardMin..voltageStandardMax) return true
 
         events.value =
             textForEvents + String.format(
                 context.getString(R.string.problemVoltage),
                 eventsCount++,
-                ("$voltage $unitVoltage"),
+                ("$voltage B"),
                 ("$voltageStandardMinDec - $voltageStandardMaxDec $unitVoltage")
             ) + "\n" + String.format(
                 context.getString(R.string.voltage_less198_more242)
@@ -195,7 +195,7 @@ class CalculateRepositoryInMemory : CalculateRepository {
         eventsCount = 1
     }
 
-    override fun reportShutdown(report: String){
+    override fun reportShutdown(report: String) {
         this.report.value = report == "Да"
     }
 

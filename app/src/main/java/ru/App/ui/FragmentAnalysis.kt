@@ -2,12 +2,14 @@ package ru.App.ui
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import ru.App.databinding.FragmentAnalysisBinding
 import ru.App.viewModel.MainViewModel
@@ -127,6 +129,32 @@ class FragmentAnalysis : Fragment() {
             }
             reporting = if (binding.editVoltage.text.toString() == "0") "Да" else "Нет"
             viewModel.reportShutdown(reporting)
+
+            if (currentVoltage == "") {
+                if (binding.editVoltage.text.toString() == "" &&
+                    binding.editFrequency.text.toString() == "" &&
+                    binding.editAsymmetry.text.toString() == "" &&
+                    binding.editNonSinusoidality.text.toString() == ""
+                ) {
+                    val toast = Toast.makeText(
+                        context,
+                        "Для анализа нужно ввести значения и выбрать номинальное напряжение",
+                        Toast.LENGTH_SHORT
+                    )
+                    toast.setGravity(Gravity.CENTER, 0, 0)
+                    toast.show()
+                } else {
+
+                    val toast = Toast.makeText(
+                        context,
+                        "Для анализа нужно выбрать номинальное напряжение",
+                        Toast.LENGTH_SHORT
+                    )
+                    toast.setGravity(Gravity.CENTER, 0, 0)
+                    toast.show()
+                }
+            }
+
         }
 
 
