@@ -21,25 +21,35 @@ class CalculateRepositoryInMemory : CalculateRepository {
         return if (report.value == true) eventsCount else eventsCount - 1
     }
 
+    private fun kvOrV(voltageStandard: String): Boolean {
+        return voltageStandard == "6" ||
+                voltageStandard == "10" ||
+                voltageStandard == "35" ||
+                voltageStandard == "110"
+    }
+
     override fun calculateVoltage(
         context: Context,
         voltage: String,
         voltageStandard: String
     ): Boolean {
         val voltageDouble = voltage.toDouble()
-        val voltageStandardDouble = voltageStandard.toDouble() * 1000
+        val voltageStandardDouble =
+            if (kvOrV(voltageStandard)) voltageStandard.toDouble() * 1000 else voltageStandard.toDouble()
 
         val unitVoltage =
-            if (voltageStandard == "6" ||
-                voltageStandard == "10" ||
-                voltageStandard == "35" ||
-                voltageStandard == "110"
-            ) context.getString(R.string.kV) else context.getString(R.string.V)
+            if (kvOrV(voltageStandard)) context.getString(R.string.kV) else context.getString(R.string.V)
         val df = DecimalFormat("#.##")
         val voltageStandardMin = voltageStandardDouble * (1 - voltageDeviation)
-        val voltageStandardMinDec = df.format(voltageStandardMin/1000)
+        val voltageStandardMinDec =
+            if (kvOrV(voltageStandard)) df.format(voltageStandardMin / 1000) else df.format(
+                voltageStandardMin
+            )
         val voltageStandardMax = voltageStandardDouble * (1 + voltageDeviation)
-        val voltageStandardMaxDec = df.format(voltageStandardMax/1000)
+        val voltageStandardMaxDec =
+            if (kvOrV(voltageStandard)) df.format(voltageStandardMax / 1000) else df.format(
+                voltageStandardMax
+            )
         if (voltageDouble in voltageStandardMin..voltageStandardMax) return true
 
         events.value =

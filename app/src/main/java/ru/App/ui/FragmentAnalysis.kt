@@ -90,22 +90,6 @@ class FragmentAnalysis : Fragment() {
                     }
                 }
 
-                if (binding.editAsymmetry.text.toString() != "") {
-                    val asymmetry = binding.editAsymmetry.text.toString()
-                    if (viewModel.calculateAsymmetry(binding.resultAsymmetry.context, asymmetry)) {
-                        binding.resultAsymmetry.also {
-                            it.setTextColor(Color.GREEN)
-                            it.text = "Несимметрия соответствует норме"
-                        }
-                    } else {
-                        binding.resultAsymmetry.also {
-                            it.setTextColor(Color.RED)
-                            it.text = "Несимметрия не соответствует норме"
-                        }
-                    }
-                }
-
-
                 if (binding.editNonSinusoidality.text.toString() != "") {
                     val nonSinusoidality = binding.editNonSinusoidality.text.toString()
                     if (viewModel.calculateNonSinusoidality(
@@ -125,6 +109,23 @@ class FragmentAnalysis : Fragment() {
                         }
                     }
                 }
+
+                if (binding.editAsymmetry.text.toString() != "") {
+                    val asymmetry = binding.editAsymmetry.text.toString()
+                    if (viewModel.calculateAsymmetry(binding.resultAsymmetry.context, asymmetry)) {
+                        binding.resultAsymmetry.also {
+                            it.setTextColor(Color.GREEN)
+                            it.text = "Несимметрия соответствует норме"
+                        }
+                    } else {
+                        binding.resultAsymmetry.also {
+                            it.setTextColor(Color.RED)
+                            it.text = "Несимметрия не соответствует норме"
+                        }
+                    }
+                }
+
+
 
             }
             reporting = if (binding.editVoltage.text.toString() == "0") "Да" else "Нет"
