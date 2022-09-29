@@ -1,17 +1,15 @@
 package ru.App.ui
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import ru.App.databinding.FragmentAnalysisBinding
+import ru.App.utils.*
 import ru.App.viewModel.MainViewModel
 
 class FragmentAnalysis : Fragment() {
@@ -51,8 +49,6 @@ class FragmentAnalysis : Fragment() {
                 reporting = if (binding.editVoltage.text.toString() == "0") "Да" else "Нет"
                 viewModel.reportShutdown(reporting)
 
-
-
                 if (binding.editVoltage.text.toString() != "" && binding.editVoltage.text.toString() != "0") {
                     val voltage = binding.editVoltage.text.toString()
                     if (viewModel.calculateVoltage(
@@ -62,13 +58,11 @@ class FragmentAnalysis : Fragment() {
                         )
                     ) {
                         binding.resultVoltage.also {
-                            it.setTextColor(Color.GREEN)
-                            it.text = "Напряжение соответствует норме"
+                            it.green("Напряжение соответствует норме")
                         }
                     } else {
                         binding.resultVoltage.also {
-                            it.setTextColor(Color.RED)
-                            it.text = "Напряжение не соответствует норме"
+                            it.red("Напряжение не соответствует норме")
                         }
                     }
                 } else {
@@ -79,13 +73,11 @@ class FragmentAnalysis : Fragment() {
                     val frequency = binding.editFrequency.text.toString()
                     if (viewModel.calculateFrequency(binding.resultFrequency.context, frequency)) {
                         binding.resultFrequency.also {
-                            it.setTextColor(Color.GREEN)
-                            it.text = "Частота соответствует норме"
+                            it.green("Частота соответствует норме")
                         }
                     } else {
                         binding.resultFrequency.also {
-                            it.setTextColor(Color.RED)
-                            it.text = "Частота не соответствует норме"
+                            it.red("Частота не соответствует норме")
                         }
                     }
                 }
@@ -99,13 +91,11 @@ class FragmentAnalysis : Fragment() {
                         )
                     ) {
                         binding.resultNonSin.also {
-                            it.setTextColor(Color.GREEN)
-                            it.text = "Несинусоидальность в норме"
+                            it.green("Несинусоидальность в норме")
                         }
                     } else {
                         binding.resultNonSin.also {
-                            it.setTextColor(Color.RED)
-                            it.text = "Несинусоидальность не соответствует норме"
+                            it.red("Несинусоидальность не соответствует норме")
                         }
                     }
                 }
@@ -114,18 +104,14 @@ class FragmentAnalysis : Fragment() {
                     val asymmetry = binding.editAsymmetry.text.toString()
                     if (viewModel.calculateAsymmetry(binding.resultAsymmetry.context, asymmetry)) {
                         binding.resultAsymmetry.also {
-                            it.setTextColor(Color.GREEN)
-                            it.text = "Несимметрия соответствует норме"
+                            it.green("Несимметрия соответствует норме")
                         }
                     } else {
                         binding.resultAsymmetry.also {
-                            it.setTextColor(Color.RED)
-                            it.text = "Несимметрия не соответствует норме"
+                            it.red("Несимметрия не соответствует норме")
                         }
                     }
                 }
-
-
 
             }
             reporting = if (binding.editVoltage.text.toString() == "0") "Да" else "Нет"
@@ -137,27 +123,12 @@ class FragmentAnalysis : Fragment() {
                     binding.editAsymmetry.text.toString() == "" &&
                     binding.editNonSinusoidality.text.toString() == ""
                 ) {
-                    val toast = Toast.makeText(
-                        context,
-                        "Для анализа нужно ввести значения и выбрать номинальное напряжение",
-                        Toast.LENGTH_SHORT
-                    )
-                    toast.setGravity(Gravity.CENTER, 0, 0)
-                    toast.show()
+                    showToast("Для анализа нужно ввести значения и выбрать номинальное напряжение")
                 } else {
-
-                    val toast = Toast.makeText(
-                        context,
-                        "Для анализа нужно выбрать номинальное напряжение",
-                        Toast.LENGTH_SHORT
-                    )
-                    toast.setGravity(Gravity.CENTER, 0, 0)
-                    toast.show()
+                    showToast("Для анализа нужно выбрать номинальное напряжение")
                 }
             }
-
         }
-
 
         radioGroup1.setOnCheckedChangeListener { _, checkedId ->
             if (radioGroupBlock)
@@ -206,8 +177,6 @@ class FragmentAnalysis : Fragment() {
             }
 
         }
-
-
     }
 
     companion object {

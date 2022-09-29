@@ -48,7 +48,6 @@ class FragmentRecommendations : Fragment() {
             } else {
                 binding.textProblems.visibility = View.GONE
                 binding.botText.visibility = View.GONE
-                //binding.emptyText.visibility = View.VISIBLE
             }
             binding.problems.text = viewModel.events.value
         }
