@@ -125,7 +125,7 @@ class FragmentAnalysis : Fragment() {
                 ) {
                     showToast("Для анализа нужно ввести значения и выбрать номинальное напряжение")
                 } else {
-                    showToast("Для анализа нужно выбрать номинальное напряжение")
+                    if (binding.editVoltage.text.toString() != "0") showToast("Для анализа нужно выбрать номинальное напряжение")
                 }
             }
         }

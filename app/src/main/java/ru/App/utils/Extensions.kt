@@ -22,6 +22,5 @@ fun Fragment.showToast(text: String){
         text,
         Toast.LENGTH_SHORT
     )
-    toast.setGravity(Gravity.CENTER, 0, 0)
     toast.show()
 }

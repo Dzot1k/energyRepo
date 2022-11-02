@@ -27,6 +27,7 @@ class FragmentRecommendations : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.botText.movementMethod = LinkMovementMethod.getInstance()
+        binding.textComplaint.movementMethod = LinkMovementMethod.getInstance()
 
         viewModel.report.observe(viewLifecycleOwner) {
             if (viewModel.report.value == true) {
@@ -44,10 +45,12 @@ class FragmentRecommendations : Fragment() {
             if (!viewModel.events.value.isNullOrEmpty() && viewModel.events.value!="") {
                 binding.textProblems.visibility = View.VISIBLE
                 binding.botText.visibility = View.VISIBLE
+                binding.textComplaint.visibility = View.VISIBLE
                 binding.emptyText.visibility = View.GONE
             } else {
                 binding.textProblems.visibility = View.GONE
                 binding.botText.visibility = View.GONE
+                binding.textComplaint.visibility = View.GONE
             }
             binding.problems.text = viewModel.events.value
         }
