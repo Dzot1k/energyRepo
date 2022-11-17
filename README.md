@@ -1,5 +1,5 @@
 ![](https://static.rustore.ru/apk/356789183/content/ICON/1e9bc007-b6ae-4707-b862-8f43c8ae8439.png) 
-# Замеры качества электроэнергии
+# Анализ качества электроэнергии
 
 https://apps.rustore.ru/app/ru.App - ссылка на приложение в RuStore
 
