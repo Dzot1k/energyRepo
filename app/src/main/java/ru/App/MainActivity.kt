@@ -3,6 +3,7 @@ package ru.App
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.tabs.TabLayoutMediator
 import ru.App.adapter.VpAdapter
 import ru.App.databinding.ActivityMainBinding
@@ -10,6 +11,7 @@ import ru.App.ui.FragmentAnalysis
 import ru.App.ui.FragmentRecommendations
 import ru.App.ui.FragmentReference
 import ru.App.viewModel.MainViewModel
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO as MODE_NIGHT_NO1
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -62,4 +66,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 }
